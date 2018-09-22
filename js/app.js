@@ -25,7 +25,6 @@ function shuffle(array) {
     return array;
 }
 
-
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
@@ -36,3 +35,33 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+
+ const mainList = document.querySelector('ul.deck');
+ const theCards = document.querySelectorAll('.card');
+
+
+ function respondToTheClick(e) {
+    console.log('A card was clicked.');
+
+    theCards.addEventListener('click', function(){
+      console.log("yaeh");
+      for(let i = 0; i < theCards.length; i++){
+        console.dir(theCards[i]);
+      }
+
+      //e.target.tagName === 'LI';
+      console.log("LI");
+    });
+
+
+
+
+}
+/*if deck.addEventListener('click', flipCard);
+  show card
+*if card is a match
+*    keep flipped
+*    if all cards matched stop timer
+*      modal appears
+*/
+ mainList.addEventListener('click', respondToTheClick);
