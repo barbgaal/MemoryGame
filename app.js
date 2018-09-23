@@ -25,7 +25,6 @@ function shuffle(array) {
     return array;
 }
 
-
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
@@ -38,24 +37,37 @@ function shuffle(array) {
  */
 
  const mainList = document.querySelector('ul.deck');
- const openCard = document.querySelectorAll('.card.open');
+/* const theCards = document.querySelectorAll('.card');
 
-function flipCard(){
-  openCard.addEventListener('click', function);
-  console.log('card opens');
-}
 
- function respondToTheClick() {
+ function respondToTheClick(e) {
     console.log('A card was clicked.');
-    flipCard();
+
+    theCards.addEventListener('click', function(){
+      console.log("yaeh");
+      for(let i = 0; i < theCards.length; i++){
+        console.dir(theCards[i]);
+      }
+
+      //e.target.tagName === 'LI';
+      console.log("LI");
+    });
+
+
+
+
 }
-
-
 /*if deck.addEventListener('click', flipCard);
   show card
 *if card is a match
 *    keep flipped
-*    if all cards flipped stop timer
+*    if all cards matched stop timer
 *      modal appears
 */
  mainList.addEventListener('click', respondToTheClick);
+ function respondToTheClick(e) {
+     console.log('A card was clicked.');
+     console.log(e.target); // to check what is clicked.
+     mainList.classList.add('open', 'show');
+     e.target.card.open.onClick;
+     };
