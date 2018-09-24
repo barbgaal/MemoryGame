@@ -38,9 +38,12 @@ function shuffle(array) {
 
  const mainList = document.querySelector('ul.deck');
  const theCards = document.querySelectorAll('.card');
+ const openCard = [];
+ const flipCard = 0;
+ const numberMoves = 0;
+ const shuffleCards = [];
 
-
- function respondToTheClick(e) {
+ /*function respondToTheClick(e) {
     console.log('A card was clicked.');
 
     theCards.addEventListener('click', function(){
@@ -52,16 +55,22 @@ function shuffle(array) {
       //e.target.tagName === 'LI';
       console.log("LI");
     });
+}*/
 
-
-
-
-}
-/*if deck.addEventListener('click', flipCard);
-  show card
-*if card is a match
-*    keep flipped
-*    if all cards matched stop timer
-*      modal appears
-*/
  mainList.addEventListener('click', respondToTheClick);
+
+ function respondToTheClick(e) {
+     console.log('A card was clicked2.');
+     console.log(e.target); // to check what is clicked.
+     e.classList.add('open show');
+
+     if (openCard.length === 0){
+       e.toggleClass('open show');
+     }
+  };
+
+
+
+
+// shuffle the cards array Kraftaa Maria
+//shuffleCards = shuffle(mainList);
