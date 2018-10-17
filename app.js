@@ -37,10 +37,15 @@ function shuffle(array) {
  */
 
  const mainList = document.querySelector('ul.deck');
-/* const theCards = document.querySelectorAll('.card');
+ const theCards = document.querySelectorAll('.card');
+ const openCard = [];
+ const flipCard = 0;
+ const numberMoves = 0;
+ const shuffleCards = [];
+ const timer = 0;
+ const stars = 0;
 
-
- function respondToTheClick(e) {
+ /*function respondToTheClick(e) {
     console.log('A card was clicked.');
 
     theCards.addEventListener('click', function(){
@@ -52,22 +57,35 @@ function shuffle(array) {
       //e.target.tagName === 'LI';
       console.log("LI");
     });
+}*/
 
-
-
-
-}
-/*if deck.addEventListener('click', flipCard);
-  show card
-*if card is a match
-*    keep flipped
-*    if all cards matched stop timer
-*      modal appears
-*/
  mainList.addEventListener('click', respondToTheClick);
+
  function respondToTheClick(e) {
-     console.log('A card was clicked.');
+     alert("Congratulations! It took you minutes. You completed the challenge with stars. Do you want to play again?");
+     console.log('A card was clicked2.');
      console.log(e.target); // to check what is clicked.
-     mainList.classList.add('open', 'show');
-     e.target.card.open.onClick;
-     };
+     e.classList.add('open show');
+
+     if (openCard.length === 0){
+       e.toggleClass('open show');
+     }
+
+  };
+
+
+
+
+// shuffle the cards array
+//shuffleCards = shuffle(mainList);
+mainList.addEventListener('click', function(e){
+  console.log('click');  //I'm just checking eventListener was added
+  console.log("this",this);  //I'm checking what is `this` - in jQuery in my code I've added additional parameter which became `$(this)` but it's not a case in vanilla /plain JS
+  var clickedCard = e.target;  //so I'm assigning exactly the card I've clicked
+  console.log(clickedCard);  - //I see what is the card I've clicked
+  console.log(e.target.classList); //I see the class list
+  clickedCard.classList.add('open','show');
+  console.log(clickedCard.children); //I'm checking the inner element - the card with fa fa ....
+   openCard.push(clickedCard.children); // adding into openCard array clicked card, so we can compare
+  console.log(openCard); //checking what is inside the array so we can add second card and compare openCard[0] and openCard[1] - and don't forget to empty the array after match or dismatch
+});
