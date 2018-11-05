@@ -37,13 +37,14 @@ function shuffle(array) {
  */
 
  const mainList = document.querySelector('ul.deck');
- const theCards = document.querySelectorAll('.card');
+ const theCards = document.querySelectorAll('li.card');
  const openCard = [];
  const flipCard = 0;
  const numberMoves = 0;
  const shuffleCards = [];
  const timer = 0;
- const stars = 0;
+ const numberStars = 0;
+
 
  /*function respondToTheClick(e) {
     console.log('A card was clicked.');
@@ -62,30 +63,41 @@ function shuffle(array) {
  mainList.addEventListener('click', respondToTheClick);
 
  function respondToTheClick(e) {
-     alert("Congratulations! It took you minutes. You completed the challenge with stars. Do you want to play again?");
+     //alert("Congratulations! It took you minutes. You completed the challenge with stars. Do you want to play again?");
      console.log('A card was clicked2.');
      console.log(e.target); // to check what is clicked.
-     e.classList.add('open show');
+     var clickedCard = e.target;
+     openCard.push(clickedCard.children);
+     clickedCard.classList.add('open','show');
+     console.log(openCard);
 
-     if (openCard.length === 0){
-       e.toggleClass('open show');
-     }
+     if (openCard.length <= 2){
+       if (openCard[0].className === openCard[1].className){
+       clickedCard.classList.add('match');
+       clickedCard.classList.remove('open','show');
+       console.log("It worked");
+       }
+     } else {
+       setTimeout(function(){
+       clickedCard.classList.remove('open','show');
+
+       openCard = [];
+     },2000);
+
+      }
 
   };
 
-
-
-
 // shuffle the cards array
 //shuffleCards = shuffle(mainList);
-mainList.addEventListener('click', function(e){
-  console.log('click');  //I'm just checking eventListener was added
-  console.log("this",this);  //I'm checking what is `this` - in jQuery in my code I've added additional parameter which became `$(this)` but it's not a case in vanilla /plain JS
-  var clickedCard = e.target;  //so I'm assigning exactly the card I've clicked
-  console.log(clickedCard);  - //I see what is the card I've clicked
-  console.log(e.target.classList); //I see the class list
-  clickedCard.classList.add('open','show');
-  console.log(clickedCard.children); //I'm checking the inner element - the card with fa fa ....
-   openCard.push(clickedCard.children); // adding into openCard array clicked card, so we can compare
-  console.log(openCard); //checking what is inside the array so we can add second card and compare openCard[0] and openCard[1] - and don't forget to empty the array after match or dismatch
-});
+//mainList.addEventListener('click', function(e){
+//  console.log('click');  //I'm just checking eventListener was added
+//  console.log("this",this);  //I'm checking what is `this` - in jQuery in my code I've added additional parameter which became `$(this)` but it's not a case in vanilla /plain JS
+//  var clickedCard = e.target;  //so I'm assigning exactly the card I've clicked
+//  console.log(clickedCard);  - //I see what is the card I've clicked
+//  console.log(e.target.classList); //I see the class list
+//  clickedCard.classList.add('open','show');
+//  console.log(clickedCard.children); //I'm checking the inner element - the card with fa fa ....
+//   openCard.push(clickedCard.children); // adding into openCard array clicked card, so we can compare
+//  console.log(openCard); //checking what is inside the array so we can add second card and compare openCard[0] and openCard[1] - and don't forget to empty the array after match or dismatch
+//});
